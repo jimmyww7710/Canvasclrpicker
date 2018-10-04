@@ -46,6 +46,9 @@ function docanvas() {
         // console.log('y:',Math.floor(event.pageY-canvas.offsetTop));
         clickAnimation("showcolor");
         giveValue();
+
+        document.getElementById('here').style.left=actualX.toString()+'px';
+        document.getElementById('here').style.top=actualY.toString()+'px';
     })
 }
 
