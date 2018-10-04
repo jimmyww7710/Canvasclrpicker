@@ -1,3 +1,4 @@
+var color;
 function docanvas() {
     this.opening("myCanvas");
     document.getElementById("myCanvas").style.cursor='pointer';
@@ -23,11 +24,23 @@ function docanvas() {
             // vm.Rclr=data[0];
             // vm.Gclr=data[1];
             // vm.Bclr=data[2];
-            document.getElementById("Rclr").value=data[0];
-            document.getElementById("Gclr").value=data[1];
-            document.getElementById("Bclr").value=data[2];
+            if(data[0]==0 && data[1]==0 && data[2]==0){
+                return false;
+            }else{
+                document.getElementById("Rclr").value=data[0];
+                document.getElementById("Gclr").value=data[1];
+                document.getElementById("Bclr").value=data[2];
+            }
+           
             // rgba(0, 0, 0, 1)
             document.getElementById("showcolor").style.backgroundColor='rgba('+data[0]+','+data[1]+','+data[2]+','+data[3]+')';
+            color='rgba('+data[0]+','+data[1]+','+data[2]+','+data[3]+')';
+
+            
+
+
+
+
             // console.log('x:',Math.floor(event.pageX-canvas.offsetLeft));
             // console.log('y:',Math.floor(event.pageY-canvas.offsetTop));
             clickAnimation("showcolor");
@@ -69,4 +82,18 @@ function docanvas() {
         }, 1000);
 
         
+    }
+
+    // function add() {
+        
+    //     document.getElementById('c01').style.backgroundColor=document.getElementById("showcolor").style.backgroundColor;
+        
+    // }
+
+    function getDiv(el){
+        console.log('123');
+        var elem = document.getElementById(el);
+        console.log(document.getElementById("showcolor").style.backgroundColor);
+       
+       elem.style.backgroundColor=document.getElementById("showcolor").style.backgroundColor;
     }
