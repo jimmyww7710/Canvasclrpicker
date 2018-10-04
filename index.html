@@ -6,15 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script type="text/javascript" src="clrpicker.js"></script>
+
+    <style>
+    *{
+        font-family:Verdana;
+    }
+    </style>
 </head>
 <body onload="docanvas()">
     <canvas id="myCanvas" width="180px" height="180px"></canvas>
-    <div id="showcolor"style="position:absolute; z-index:85; top:200px; left:320px;background:red;width:100px;height:50px;"></div>
-   <div style="position:absolute; z-index:85; top:300px; left:320px;color:white;">
+<h2 style="position: absolute;left:22px;text-align:center;color:#D0D0D0;">ColorPicker<br>V.01</h2>
+<div style="position: relative;width:200px; height:300px;border:1px solid #E1E6E7;top:-180px;left:200px; ">
+    <div style="position:absolute; z-index:85; top:50px; left:80px;width:160px;height:100px;">
+        <div id="showcolor" style="margin:auto 0px;width:100px;height:50px;border:1px solid #E1E6E7;"></div>
+    </div>
+   <div style="position:absolute; z-index:85; top:140px; left:80px;">
     R:<input type="text" id="Rclr" value="0" style="width:100px;text-align:center;">
+    <br>
     G:<input type="text" id="Gclr" value="0" style="width:100px;text-align:center;">
+    <br>
     B:<input type="text" id="Bclr" value="0" style="width:100px;text-align:center;">
    </div>
+</div>
     <img src="image/clrmodel.png" id='Img' style="display:none;">
 </body>
 </html>

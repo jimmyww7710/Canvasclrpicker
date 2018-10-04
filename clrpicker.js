@@ -1,8 +1,9 @@
 function docanvas() {
+    this.opening("myCanvas");
     document.getElementById("myCanvas").style.cursor='pointer';
     console.log('docanvas');
     var canvas = document.getElementById("myCanvas");
-    let vm=this;
+    
     // if (canvas && canvas.getContext('2d')) {
         console.log('canvas in ');
         var context = canvas.getContext('2d');
@@ -29,6 +30,43 @@ function docanvas() {
             document.getElementById("showcolor").style.backgroundColor='rgba('+data[0]+','+data[1]+','+data[2]+','+data[3]+')';
             // console.log('x:',Math.floor(event.pageX-canvas.offsetLeft));
             // console.log('y:',Math.floor(event.pageY-canvas.offsetTop));
-
+            clickAnimation("showcolor");
         })
+    }
+
+
+    function clickAnimation(el){
+        var elem = document.getElementById(el);
+        // elem.style.transition ='height 0.2s width 0.2s linear 0s';
+        // var divheight=(elem.style.height).substring(1, divheight.length-2);
+        // var divheight=parseInt(elem.style.height);
+        // var divwidth=parseInt(elem.style.width);
+        // console.log(divheight);
+        
+        // elem.style.transition ='height 0.2s width 0.2s ease 0s';
+        elem.style.border='3px solid #E1E6E7';
+        setTimeout(() => {
+            elem.style.border='0px solid #E1E6E7';
+        }, 100);
+
+        
+    }
+
+
+    function opening(el){
+        var elem = document.getElementById(el);
+        elem.style.transition ='opacity 1s linear 0s';
+        // var divheight=(elem.style.height).substring(1, divheight.length-2);
+        // var divheight=parseInt(elem.style.height);
+        // var divwidth=parseInt(elem.style.width);
+        // console.log(divheight);
+        
+        // elem.style.transition ='height 0.2s width 0.2s ease 0s';
+        elem.style.opacity='0.2';
+        setTimeout(() => {
+            elem.style.border='1';
+            elem.style.opacity='1';
+        }, 1000);
+
+        
     }
