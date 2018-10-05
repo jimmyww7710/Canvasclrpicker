@@ -183,3 +183,6 @@ function giveblack(){
     }
 }
 
+
+// "this.value=this.value.replace(/[^0-9.]/g,'')" 只能輸入數字和小數點
+
