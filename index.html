@@ -67,12 +67,17 @@
     </div>
 
     <section style="position: absolute;left:20px;top:300px;">
-    混透明度:
-        <input type="text" value="0.5" id="mixOpacity" style="width:123px;text-align:center;">
+            <!-- 透明度:
+            <input type="text" value="0.5" id="ALLOp" style="width:123px;text-align:center;"> -->
+        遮罩 0.1~1：
+        <input type="text" value="1" id="mixOpacity" style="width:80px;text-align:center;">
+        <br>
+        透明度0.1~1:
+        <input type="text" value="1" id="AllOp" style="width:123px;text-align:center;margin-top:8px">
     <img src="image/clrmodel.png" id='Img' style="display:none;">
-    <br> 混黑白:<div style="margin-top:10px;width:200px;height:15px;background-image: linear-gradient(to right,rgb(0,0,0),rgb(255,255,255));"></div>
+    <br> 混黑白:<div style="margin-top:15px;width:200px;height:15px;background-image: linear-gradient(to right,rgb(0,0,0),rgb(255,255,255));"></div>
     <div class="slidecontainer">
-        <input type="range" min="1" max="255" value="122" class="slider" id="myRange" style="width:200px;margin-left:-1px;">
+        <input type="range" min="1" max="255" value="1" class="slider" id="myRange" style="width:200px;margin-left:-1px;">
         <p>Value: <span id="demo"></span></p>
    
       </div>

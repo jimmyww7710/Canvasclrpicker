@@ -1,7 +1,7 @@
 var color;
-var opacityValue=0.5;
-var blackvalue =122;
-
+var opacityValue=1;
+var blackvalue =1;
+var allopacity =1;
 function docanvas() {  
 //    啟動canvas
     giveblack();//啟動黑白混色
@@ -125,24 +125,25 @@ function giveValue() {
     var inputRclr = document.getElementById('Rclr');
     var inputGclr = document.getElementById('Gclr');
     var inputBclr = document.getElementById('Bclr');
+    var mixOpacity = document.getElementById('mixOpacity');
     inputRclr.addEventListener("keyup", function (event) {
         event.preventDefault();
         if (event.keyCode === 13) {
-            document.getElementById("showcolor").style.backgroundColor =  'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ')';
+            document.getElementById("showcolor").style.backgroundColor =  'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) +','+ allopacity +')';
         }
     });
 
     inputGclr.addEventListener("keyup", function (event) {
         event.preventDefault();
         if (event.keyCode === 13) {
-            document.getElementById("showcolor").style.backgroundColor =  'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ')';
+            document.getElementById("showcolor").style.backgroundColor =  'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) +','+ allopacity +')';
         }
     });
 
     inputBclr.addEventListener("keyup", function (event) {
         event.preventDefault();
         if (event.keyCode === 13) {
-            document.getElementById("showcolor").style.backgroundColor =  'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ')';
+            document.getElementById("showcolor").style.backgroundColor =  'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) +','+ allopacity +')';
         }
     });
 
@@ -150,11 +151,17 @@ function giveValue() {
         event.preventDefault();
         if (event.keyCode === 13) {
             opacityValue=this.value;
-            document.getElementById("showcolor").style.backgroundColor = 'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ')';
+            document.getElementById("showcolor").style.backgroundColor =  'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) +','+ allopacity +')';
         }
     });
 
-    
+    AllOp.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            allopacity =this.value;
+            document.getElementById("showcolor").style.backgroundColor =  'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(blackvalue)*opacityValue) +','+ allopacity +')';
+        }
+    });
 }
 
 function giveblack(){
@@ -172,7 +179,7 @@ function giveblack(){
         // console.log('');
         // console.log('');
         // console.log('');
-        document.getElementById("showcolor").style.backgroundColor = 'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ')';
+        document.getElementById("showcolor").style.backgroundColor = 'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(this.value)*opacityValue) +','+ allopacity +')';
     }
 }
 
