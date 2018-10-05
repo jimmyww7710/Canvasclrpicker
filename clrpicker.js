@@ -1,5 +1,6 @@
 var color;
 var opacityValue=0.5;
+var blackvalue =122;
 
 function docanvas() {
    
@@ -38,8 +39,8 @@ function docanvas() {
         }
 
         // rgba(0, 0, 0, 1)
-        document.getElementById("showcolor").style.backgroundColor = 'rgba(' + data[0] + ',' + data[1] + ',' + data[2] + ',' + data[3] + ')';
-        color = 'rgba(' + data[0] + ',' + data[1] + ',' + data[2] + ',' + data[3] + ')';
+        document.getElementById("showcolor").style.backgroundColor = 'rgb(' + (parseInt(data[0])*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(data[1])*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(data[2])*opacityValue+parseInt(blackvalue)*opacityValue) + ')';
+        // color = 'rgba(' + data[0] + ',' + data[1] + ',' + data[2] + ',' + data[3] + ')';
 
 
 
@@ -117,21 +118,21 @@ function giveValue() {
     inputRclr.addEventListener("keyup", function (event) {
         event.preventDefault();
         if (event.keyCode === 13) {
-            document.getElementById("showcolor").style.backgroundColor = 'rgba(' + inputRclr.value + ',' + inputGclr.value + ',' + inputBclr.value + ',1)';
+            document.getElementById("showcolor").style.backgroundColor =  'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ')';
         }
     });
 
     inputGclr.addEventListener("keyup", function (event) {
         event.preventDefault();
         if (event.keyCode === 13) {
-            document.getElementById("showcolor").style.backgroundColor = 'rgba(' + inputRclr.value + ',' + inputGclr.value + ',' + inputBclr.value + ',1)';
+            document.getElementById("showcolor").style.backgroundColor =  'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ')';
         }
     });
 
     inputBclr.addEventListener("keyup", function (event) {
         event.preventDefault();
         if (event.keyCode === 13) {
-            document.getElementById("showcolor").style.backgroundColor = 'rgba(' + inputRclr.value + ',' + inputGclr.value + ',' + inputBclr.value + ',1)';
+            document.getElementById("showcolor").style.backgroundColor =  'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ')';
         }
     });
 
@@ -156,7 +157,7 @@ function giveblack(){
 
     slider.oninput = function () {
         output.innerHTML = this.value;
-        
+        blackvalue = this.value;
         console.log('Rclr',(parseInt(inputRclr.value)+parseInt(this.value)));
         // console.log('');
         // console.log('');
