@@ -2,23 +2,28 @@ var color;
 var opacityValue=0.5;
 var blackvalue =122;
 
-function docanvas() {
-   
-    giveblack();
+function docanvas() {  
+//    啟動canvas
+    giveblack();//啟動黑白混色
 
-    this.opening("myCanvas");
-    document.getElementById("myCanvas").style.cursor = 'pointer';
+    this.opening("myCanvas");//進場動畫
+
+    document.getElementById("myCanvas").style.cursor = 'pointer';//滑鼠樣式
     console.log('docanvas');
+
+    //定義canvas 開始
     var canvas = document.getElementById("myCanvas");
 
-    // if (canvas && canvas.getContext('2d')) {
+   
     console.log('canvas in ');
     var context = canvas.getContext('2d');
     var myImg = document.getElementById("Img");
 
     context.drawImage(myImg, 0, 0);
 
-    document.addEventListener("click", function (event) {
+    //定義canvas##
+
+    document.addEventListener("click", function (event) { //啟動滑鼠click事件，用data取RGBA值
         var actualX = Math.floor(event.pageX - canvas.offsetLeft);
         var actualY = Math.floor(event.pageY - canvas.offsetTop);
         var pixelData = context.getImageData(actualX, actualY, 1, 1);
@@ -31,32 +36,37 @@ function docanvas() {
         // vm.Gclr=data[1];
         // vm.Bclr=data[2];
         if (data[0] == 0 && data[1] == 0 && data[2] == 0) {
-            return false;
+            return false; //如果點到畫面外，就不做事
         } else {
+            //放進對應輸入框
             document.getElementById("Rclr").value = data[0];
             document.getElementById("Gclr").value = data[1];
             document.getElementById("Bclr").value = data[2];
         }
 
-        // rgba(0, 0, 0, 1)
+
+
+        //顯示顏色
         document.getElementById("showcolor").style.backgroundColor = 'rgb(' + (parseInt(data[0])*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(data[1])*opacityValue+parseInt(blackvalue)*opacityValue) + ',' + (parseInt(data[2])*opacityValue+parseInt(blackvalue)*opacityValue) + ')';
-        // color = 'rgba(' + data[0] + ',' + data[1] + ',' + data[2] + ',' + data[3] + ')';
+    
 
 
 
 
 
 
-        // console.log('x:',Math.floor(event.pageX-canvas.offsetLeft));
-        // console.log('y:',Math.floor(event.pageY-canvas.offsetTop));
-        clickAnimation("showcolor");
-        giveValue();
+    
+        clickAnimation("showcolor"); //啟動按下動畫
+        giveValue();//輸入框給值
 
         document.getElementById('here').style.left = actualX.toString() + 'px';
         document.getElementById('here').style.top = actualY.toString() + 'px';
     })
 }
 
+
+
+//函式庫
 
 function clickAnimation(el) {
     var elem = document.getElementById(el);
