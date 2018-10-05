@@ -11,12 +11,21 @@
     <style>
         * {
             font-family: Verdana;
+            color:#E1E6E7;
         }
 
         #add:active {
             border: 1px solid #D74946;
         }
 
+        body{
+            background:rgb(78, 78, 78);
+
+        }
+
+        input{
+            color:rgb(78, 78, 78);
+        }
        
     </style>
 </head>
@@ -27,7 +36,7 @@
     <canvas id="myCanvas" width="180px" height="180px"></canvas>
     <h2 style="position: absolute;left:22px;text-align:center;color:#D0D0D0;">ColorPicker
         <br>V.01</h2>
-    <div style="position: relative;width:200px; height:300px;border:1px solid #E1E6E7;top:-180px;left:200px; ">
+    <div style="position: relative;width:200px; height:300px;border:0px solid #E1E6E7;top:-70px;left:200px; ">
         <!-- <a id='add' onclick="add()" style="position:absolute; z-index:85; top:10px; left:80px;font-size:20px;cursor:pointer;display:block;background:#F3534F;text-align:center;padding:2px;color:white;">+</a> -->
         <div style="position:absolute; z-index:85; top:50px; left:80px;width:160px;height:100px;">
             <div id="showcolor" style="margin:auto 0px;width:100px;height:50px;border:1px solid #E1E6E7;"></div>
@@ -35,26 +44,38 @@
         <div style="position:absolute; z-index:85; top:140px; left:80px;">
             R:
             <input type="text" id="Rclr" value="0" style="width:100px;text-align:center;">
-            <br> G:
+            <br><br> G:
             <input type="text" id="Gclr" value="0" style="width:100px;text-align:center;">
-            <br> B:
+            <br> <br> B:
             <input type="text" id="Bclr" value="0" style="width:100px;text-align:center;">
         </div>
+        
     </div>
 
-    <div id="myList" style="position: absolute;top:11px;left:450px;width:144px;border:1px solid #E1E6E7;z-index:99;">
-        <div id='c01' style="width:50px;height:50px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c01')"></div>
-        <div id='c02' style="width:50px;height:50px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c02')"></div>
-        <div id='c03' style="width:50px;height:50px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c03')"></div>
-        <div id='c04' style="width:50px;height:50px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c04')"></div>
-        <div id='c05' style="width:50px;height:50px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c05')"></div>
-        <div id='c06' style="width:50px;height:50px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c06')"></div>
-        <div id='c07' style="width:50px;height:50px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c07')"></div>
-        <div id='c08' style="width:50px;height:50px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c08')"></div>
-        <div id='c09' style="width:50px;height:50px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c09')"></div>
-        <div id='c10' style="width:50px;height:50px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c10')"></div>
+    <div id="myList" style="position: absolute;top:11px;left:450px;width:500px;border:0px solid #E1E6E7;z-index:99;">
+        <div id='c01' style="width:100px;height:100px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c01')"></div>
+        <div id='c02' style="width:100px;height:100px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c02')"></div>
+        <div id='c03' style="width:100px;height:100px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c03')"></div>
+        <div id='c04' style="width:100px;height:100px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c04')"></div>
+        <div id='c05' style="width:100px;height:100px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c05')"></div>
+        <div id='c06' style="width:100px;height:100px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c06')"></div>
+        <div id='c07' style="width:100px;height:100px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c07')"></div>
+        <div id='c08' style="width:100px;height:100px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c08')"></div>
+        <div id='c09' style="width:100px;height:100px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c09')"></div>
+        <div id='c10' style="width:100px;height:100px;margin:10px;border:1px solid #E1E6E7;float:left;" onclick="getDiv('c10')"></div>
     </div>
+
+    <section style="position: absolute;left:20px;top:300px;">
+    混透明度:
+        <input type="text" value="0.5" id="mixOpacity" style="width:123px;">
     <img src="image/clrmodel.png" id='Img' style="display:none;">
+    <br> 混黑白:<div style="margin-top:10px;width:200px;height:15px;background-image: linear-gradient(to right,rgb(0,0,0),rgb(255,255,255));"></div>
+    <div class="slidecontainer">
+        <input type="range" min="1" max="255" value="0" class="slider" id="myRange" style="width:200px;margin-left:-1px;">
+        <p>Value: <span id="demo"></span></p>
+   
+      </div>
+    </section>
 </body>
 
 </html>

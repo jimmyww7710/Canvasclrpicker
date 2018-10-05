@@ -1,6 +1,10 @@
 var color;
+var opacityValue=0.5;
 
 function docanvas() {
+   
+    giveblack();
+
     this.opening("myCanvas");
     document.getElementById("myCanvas").style.cursor = 'pointer';
     console.log('docanvas');
@@ -47,8 +51,8 @@ function docanvas() {
         clickAnimation("showcolor");
         giveValue();
 
-        document.getElementById('here').style.left=actualX.toString()+'px';
-        document.getElementById('here').style.top=actualY.toString()+'px';
+        document.getElementById('here').style.left = actualX.toString() + 'px';
+        document.getElementById('here').style.top = actualY.toString() + 'px';
     })
 }
 
@@ -105,29 +109,59 @@ function getDiv(el) {
 
 
 
-function giveValue(){
- 
-var inputRclr = document.getElementById('Rclr');
-var inputGclr = document.getElementById('Gclr');
-var inputBclr = document.getElementById('Bclr');
-inputRclr.addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode === 13) {
-        document.getElementById("showcolor").style.backgroundColor = 'rgba(' + inputRclr.value + ',' + inputGclr.value + ',' + inputBclr.value + ',1)';
-    }
-});
+function giveValue() {
 
-inputGclr.addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode === 13) {
-        document.getElementById("showcolor").style.backgroundColor = 'rgba(' + inputRclr.value + ',' + inputGclr.value + ',' + inputBclr.value + ',1)';
-    }
-});
+    var inputRclr = document.getElementById('Rclr');
+    var inputGclr = document.getElementById('Gclr');
+    var inputBclr = document.getElementById('Bclr');
+    inputRclr.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("showcolor").style.backgroundColor = 'rgba(' + inputRclr.value + ',' + inputGclr.value + ',' + inputBclr.value + ',1)';
+        }
+    });
 
-inputBclr.addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode === 13) {
-        document.getElementById("showcolor").style.backgroundColor = 'rgba(' + inputRclr.value + ',' + inputGclr.value + ',' + inputBclr.value + ',1)';
-    }
-});
+    inputGclr.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("showcolor").style.backgroundColor = 'rgba(' + inputRclr.value + ',' + inputGclr.value + ',' + inputBclr.value + ',1)';
+        }
+    });
+
+    inputBclr.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("showcolor").style.backgroundColor = 'rgba(' + inputRclr.value + ',' + inputGclr.value + ',' + inputBclr.value + ',1)';
+        }
+    });
+
+    mixOpacity.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            opacityValue=this.value;
+            document.getElementById("showcolor").style.backgroundColor = 'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ')';
+        }
+    });
+
+    
 }
+
+function giveblack(){
+    var inputRclr = document.getElementById('Rclr');
+    var inputGclr = document.getElementById('Gclr');
+    var inputBclr = document.getElementById('Bclr');
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+        
+        console.log('Rclr',(parseInt(inputRclr.value)+parseInt(this.value)));
+        // console.log('');
+        // console.log('');
+        // console.log('');
+        document.getElementById("showcolor").style.backgroundColor = 'rgb(' + (parseInt(inputRclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputGclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ',' + (parseInt(inputBclr.value)*opacityValue+parseInt(this.value)*opacityValue) + ')';
+    }
+}
+
